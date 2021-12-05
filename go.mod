@@ -1,4 +1,4 @@
-module tulip
+module github.com/espegro/tulip
 
 go 1.13
 

@@ -1,6 +1,10 @@
 # tulip
 Simple stable bloomfilter web service
 
+[Stable Learned Bloom Filters for Data Streams](http://www.vldb.org/pvldb/vol13/p2355-liu.pdf)
+
+More about setting filter values: https://hur.st/bloomfilter/
+
 ## Usage
 ```
 tulip -port 8080 -address 127.0.0.1 -state filterstate.json
@@ -14,15 +18,16 @@ tulip -port 8080 -address 127.0.0.1 -state filterstate.json
 #### New
 Create a new filter named __name__
 
-* _filtersize_ number of cells in filter
-* _hashfunctions_ number of hash functions
-* _decay_ number of random delete before insert
+* _filtersize_ number of cells in filter - m 
+* _hashfunctions_ number of hash functions - k
+* _decay_ number of random deletes before insert
 * _max_ max cell value
   
 
 ```
 /bloom/new/<name>/<filtersize>/<hashfunctions>/<decay>/<max>
 ```
+
 
 #### Add
 Add a single value to filter

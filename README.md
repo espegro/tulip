@@ -1,4 +1,4 @@
-# tulip - Simple stable bloomfilter web service
+# tulip - Simple stable [bloomfilter](https://en.wikipedia.org/wiki/Bloom_filter) web service
 
 A simple go web service implementing SBF
 

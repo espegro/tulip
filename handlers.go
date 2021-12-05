@@ -72,7 +72,6 @@ func addhandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		w.WriteHeader(200)
 		fmt.Fprintf(w, "OK\n")
 		val.Add([]byte(filtervalue))
-		return
 	} else {
 		w.WriteHeader(404)
 		fmt.Fprintf(w, "Filter not found!\n")
@@ -88,7 +87,6 @@ func addifnotsethandler(w http.ResponseWriter, r *http.Request, p httprouter.Par
 		w.WriteHeader(200)
 		fmt.Fprintf(w, "OK\n")
 		val.AddIfNotSet([]byte(filtervalue))
-		return
 	} else {
 		w.WriteHeader(404)
 		fmt.Fprintf(w, "Filter not found!\n")
@@ -105,7 +103,6 @@ func testhandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 			w.WriteHeader(200)
 			w.Header().Set("Content-Type", "application/json")
 			fmt.Fprintf(w, "{\n\"status\": \"OK\",\n\"found\": true\n}\n")
-			return
 		} else {
 			w.WriteHeader(404)
 			w.Header().Set("Content-Type", "application/json")
@@ -228,7 +225,6 @@ func infohandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	} else {
 		w.WriteHeader(404)
 		fmt.Fprintf(w, "Filter not found!\n")
-		return
 	}
 	return
 }
@@ -252,10 +248,9 @@ func posterhandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) 
 		}
 		fmt.Fprintf(w, "OK, added %v values to filter: %v\n", count, filtername)
 		log.Printf("OK, added %v values to filter: %v\n", count, filtername)
-		return
 	} else {
 		w.WriteHeader(404)
 		fmt.Fprintf(w, "Filter not found!\n")
-		return
 	}
+	return
 }

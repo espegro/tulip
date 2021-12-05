@@ -1,5 +1,6 @@
-# tulip
-Simple stable bloomfilter web service
+# tulip - Simple stable bloomfilter web service
+
+A simple go web service implementing SBF
 
 [Stable Learned Bloom Filters for Data Streams](http://www.vldb.org/pvldb/vol13/p2355-liu.pdf)
 
@@ -62,11 +63,15 @@ curl -X POST http://127.0.0.1:8080/bloom/poster/filtername --data-binary @filena
 ```
 #### Reset
 Set all values in filter to zero
+```
+/bloom/reset/<name>
+```
 
 #### Destroy
 Remove filter
-
-
+```
+/bloom/destroy/<name>
+```
 
 ### GET
 
@@ -95,8 +100,14 @@ Get debug info about filter
 
 #### Save
 Force saving of filterstate to disk
+```
+/bloom/save
+```
 
 #### Load
 Force reload of filterstate from disk
+```
+/bloom/load
+```
 
 

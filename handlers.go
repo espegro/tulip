@@ -103,11 +103,13 @@ func testhandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	if val, ok := filters[filtername]; ok {
 		if val.Test([]byte(filtervalue)) {
 			w.WriteHeader(200)
-			fmt.Fprintf(w, "OK\n")
+			w.Header().Set("Content-Type", "application/json")
+			fmt.Fprintf(w, "{\n\"status\": \"OK\",\n\"found\": true\n}\n")
 			return
 		} else {
 			w.WriteHeader(404)
-			fmt.Fprintf(w, "Value not found in map\n")
+			w.Header().Set("Content-Type", "application/json")
+			fmt.Fprintf(w, "{\n\"status\": \"NOT FOUND\",\n\"found\": false\n}\n")
 		}
 	} else {
 		w.WriteHeader(422)

@@ -32,6 +32,7 @@ Create a new filter named __name__
 
 #### Add
 Add a single value to filter
+Value kan be anything, will be hashed k times with murmur3
 
 ```
 /bloom/add/<name>/<value>

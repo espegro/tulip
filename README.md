@@ -31,14 +31,15 @@ Create a new filter named __name__
 
 
 #### Add
-Add a single value to filter
+Add a single value to filter. 
+Value kan be anything, will be hashed k times with murmur3
 
 ```
 /bloom/add/<name>/<value>
 ```
 
 #### AddIfNotSet
-Add single value to filter if value not exists in filter
+Add single value to filter if value not exists in filter. Will not run random delete if value exists. 
 
 ```
 /bloom/addifnotset/<name>/<value>
